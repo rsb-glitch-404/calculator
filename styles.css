@@ -9,8 +9,8 @@ body {
 .main {
     background-color: #212121;
     color: white;
-    height: 500px;    
-    width: 400px;
+    height: 540px;    
+    width: 340px;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,21 @@ body {
 
 .container{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+}
+
+#division,
+#multiplication,
+#minus,
+#plus,
+#equals {
+    background-color: #FF9500;
+}
+
+#zero {
+    width: 150px;
+    border-radius: 2.5rem;
 }
 
 
