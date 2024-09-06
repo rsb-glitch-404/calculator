@@ -1,6 +1,23 @@
+let operand1 = "";
+let operator = "";
+let operand2 = "";
+let displaySum = "";
+
+
 const buttons = document.querySelectorAll(".button")
 const settingsButtons = document.querySelectorAll(".settingsButton")
 
+
+
+
+
+
+
+function operate(a, sign, b) {
+
+}
+
+// hovering action events
 
 buttons.forEach((button) => {
     button.addEventListener("mouseover", () => {
@@ -21,3 +38,14 @@ settingsButtons.forEach((settingsButton) => {
         settingsButton.style.backgroundColor = ""
     });
 });
+
+
+/*
+i want the operations to occur instantly, no waiting for a full expression - this way i dont have to worry about order of operations.
+
+if every sign calls the operate button, then the first press will be null since operand2 is null at the start
+if i give it a decoy value of 0, then if i press x or divide the first try itll crash
+a null boolean check should be good enough, if operation is pressed and operand2 = null return immedieately, otherwise execute the function.
+hey i did it =)
+
+*/
