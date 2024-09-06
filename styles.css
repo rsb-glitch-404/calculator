@@ -18,11 +18,14 @@ body {
 
 .display {
     background-color: #414141;
-    height: 2rem;
+    font-size: 30px;
+    height: 3rem;
+    padding: 1rem;
     border-radius: 1rem;
-    padding: 2rem;
     margin: 1rem;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .container{
