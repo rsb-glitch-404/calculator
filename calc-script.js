@@ -19,26 +19,43 @@ buttons.forEach((key) => {
             if ((operand1 === "") || (operand2 === "") || operator === "") {
                 return
             }
-            operate(operand1, operator, operand2)
+            let temp = operator
+            operator = ""
+            operate(operand1, temp, operand2)
+            return
         }
 
         if ((inputClass === "numberButton") && (operator === "")) {
+            if (operand1 !== "") {
+                operand1 = operand1.concat("", userInput)
+                display.textContent = operand1
+                return
+            }
             operand1 = userInput
+            console.log(operand1)
             display.textContent = operand1
             return
         }
 
-        if ((inputClass === "operationButton") && (operand2 === "")) {
+        if ((inputClass === "operationButton")) {
+            if ((operand2 === "")) {
+                operator = userInput
+                display.innerHTML += (" " + operator)
+                return
+            }
+            let temp = operator
             operator = userInput
-            display.innerHTML += (" " + operator)
-            return
+            operate(operand1, temp, operand2)
         }
 
         if ((inputClass === "numberButton") && (operator !== "") && (operand1 !== "")) {
+            if (operand2 !== "") {
+                display.innerHTML += userInput
+                operand2 = operand2.concat("", userInput)
+                return
+            }
             operand2 = userInput
             display.innerHTML += (" " + operand2)
-            console.log(operand1 + " " + operator + " " + operand2)
-            operate(operand1, operator, operand2)
         }
 
         if ((userInput === "AC")) {
@@ -56,31 +73,27 @@ buttons.forEach((key) => {
 function operate(a, sign, b) {
 
     if (sign === "+") {
-        operand1 = (a * 1) + (b * 1)
+        operand1 = Math.round (((a * 1) + (b * 1)) * 100) / 100
         operand2 = ""
-        operator = ""
-        display.textContent = operand1
+        display.textContent = (operand1 + " " + operator)
     }
 
     if (sign === "-") {
-        operand1 = a - b
+        operand1 = Math.round((a - b) * 100) / 100
         operand2 = ""
-        operator = ""
-        display.textContent = operand1
+        display.textContent = (operand1 + " " + operator)
     }
 
     if (sign === "x") {
         operand1 = Math.round((a * b) * 100) / 100
         operand2 = ""
-        operator = ""
-        display.textContent = operand1
+        display.textContent = (operand1 + " " + operator)
     }
 
     if (sign === "÷") {
         operand1 = Math.round((a / b) * 100) / 100
         operand2 = ""
-        operator = ""
-        display.textContent = operand1
+        display.textContent = (operand1 + " " + operator)
     }
 }
 
