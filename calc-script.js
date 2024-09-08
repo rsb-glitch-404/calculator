@@ -7,9 +7,11 @@ let displaySum = "";
 const buttons = document.querySelectorAll(".button")
 const settingsButtons = document.querySelectorAll(".settingsButton")
 
-
-
-
+buttons.forEach((key) => {
+    key.addEventListener("click", () => {
+        console.log(key.textContent)
+    });
+});
 
 
 
@@ -17,8 +19,9 @@ function operate(a, sign, b) {
 
 }
 
-// hovering action events
 
+
+// hovering action events
 buttons.forEach((button) => {
     button.addEventListener("mouseover", () => {
         button.style.backgroundColor = "#616161"
