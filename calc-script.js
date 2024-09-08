@@ -12,8 +12,8 @@ const display = document.querySelector(".display")
 
 buttons.forEach((key) => {
     key.addEventListener("click", () => {
-        userInput = key.textContent
-        inputClass = key.className
+        let userInput = key.textContent
+        let inputClass = key.className
 
         if ((userInput === "=")) {
             if ((operand1 === "") || (operand2 === "") || operator === "") {
@@ -40,13 +40,36 @@ buttons.forEach((key) => {
             console.log(operand1 + " " + operator + " " + operand2)
             operate(operand1, operator, operand2)
         }
+
+        if ((userInput === "AC")) {
+            operand1 = ""
+            operand2 = ""
+            operator = ""
+            display.textContent = "0"
+            return
+        }
     });
 });
 
 
 
 function operate(a, sign, b) {
-    console.log("you reached the operate() method")    
+    console.log("you reached the operate() method")
+    if (sign === "+") {
+        console.log("add")
+    }
+
+    if (sign === "-") {
+        console.log("minus")
+    }
+
+    if (sign === "x") {
+        console.log("multiply")
+    }
+
+    if (sign === "÷") {
+        console.log("divide")
+    }
 }
 
 
