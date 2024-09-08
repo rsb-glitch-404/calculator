@@ -54,21 +54,33 @@ buttons.forEach((key) => {
 
 
 function operate(a, sign, b) {
-    console.log("you reached the operate() method")
+
     if (sign === "+") {
-        console.log("add")
+        operand1 = (a * 1) + (b * 1)
+        operand2 = ""
+        operator = ""
+        display.textContent = operand1
     }
 
     if (sign === "-") {
-        console.log("minus")
+        operand1 = a - b
+        operand2 = ""
+        operator = ""
+        display.textContent = operand1
     }
 
     if (sign === "x") {
-        console.log("multiply")
+        operand1 = Math.round((a * b) * 100) / 100
+        operand2 = ""
+        operator = ""
+        display.textContent = operand1
     }
 
     if (sign === "÷") {
-        console.log("divide")
+        operand1 = Math.round((a / b) * 100) / 100
+        operand2 = ""
+        operator = ""
+        display.textContent = operand1
     }
 }
 
