@@ -4,12 +4,16 @@ let operand2 = "";
 let displaySum = "";
 
 
-const buttons = document.querySelectorAll(".button")
-const settingsButtons = document.querySelectorAll(".settingsButton")
+const btnNumber = document.querySelectorAll(".numberButton")
+const btnOperation = document.querySelectorAll(".operationButton")
+const btnSettings = document.querySelectorAll(".settingsButton")
+const buttons = document.querySelectorAll("button")
 
 buttons.forEach((key) => {
     key.addEventListener("click", () => {
-        console.log(key.textContent)
+        userInput = key.textContent
+        inputClass = key.className
+        console.log(inputClass)
     });
 });
 
@@ -22,23 +26,33 @@ function operate(a, sign, b) {
 
 
 // hovering action events
-buttons.forEach((button) => {
-    button.addEventListener("mouseover", () => {
-        button.style.backgroundColor = "#616161"
+btnNumber.forEach((number) => {
+    number.addEventListener("mouseover", () => {
+        number.style.backgroundColor = "#616161"
     });
 
-    button.addEventListener("mouseout", () => {
-        button.style.backgroundColor = ""
+    number.addEventListener("mouseout", () => {
+        number.style.backgroundColor = ""
     });
 });
 
-settingsButtons.forEach((settingsButton) => {
-    settingsButton.addEventListener("mouseover", () => {
-        settingsButton.style.backgroundColor = "#EB8A00"
+btnSettings.forEach((settings) => {
+    settings.addEventListener("mouseover", () => {
+        settings.style.backgroundColor = "#616161"
     });
 
-    settingsButton.addEventListener("mouseout", () => {
-        settingsButton.style.backgroundColor = ""
+    settings.addEventListener("mouseout", () => {
+        settings.style.backgroundColor = ""
+    });
+});
+
+btnOperation.forEach((operation) => {
+    operation.addEventListener("mouseover", () => {
+        operation.style.backgroundColor = "#EB8A00"
+    });
+
+    operation.addEventListener("mouseout", () => {
+        operation.style.backgroundColor = ""
     });
 });
 
