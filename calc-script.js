@@ -8,19 +8,45 @@ const btnNumber = document.querySelectorAll(".numberButton")
 const btnOperation = document.querySelectorAll(".operationButton")
 const btnSettings = document.querySelectorAll(".settingsButton")
 const buttons = document.querySelectorAll("button")
+const display = document.querySelector(".display")
 
 buttons.forEach((key) => {
     key.addEventListener("click", () => {
         userInput = key.textContent
         inputClass = key.className
-        console.log(inputClass)
+
+        if ((userInput === "=")) {
+            if ((operand1 === "") || (operand2 === "") || operator === "") {
+                return
+            }
+            operate(operand1, operator, operand2)
+        }
+
+        if ((inputClass === "numberButton") && (operator === "")) {
+            operand1 = userInput
+            display.textContent = operand1
+            return
+        }
+
+        if ((inputClass === "operationButton") && (operand2 === "")) {
+            operator = userInput
+            display.innerHTML += (" " + operator)
+            return
+        }
+
+        if ((inputClass === "numberButton") && (operator !== "") && (operand1 !== "")) {
+            operand2 = userInput
+            display.innerHTML += (" " + operand2)
+            console.log(operand1 + " " + operator + " " + operand2)
+            operate(operand1, operator, operand2)
+        }
     });
 });
 
 
 
 function operate(a, sign, b) {
-
+    console.log("you reached the operate() method")    
 }
 
 
