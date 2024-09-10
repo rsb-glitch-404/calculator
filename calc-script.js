@@ -65,6 +65,22 @@ buttons.forEach((key) => {
             display.textContent = "0"
             return
         }
+
+        if (userInput === "+/-") {
+            let x = operand1
+            if (x > 0) {
+                console.log(operand1)
+                operand1 = "-" + operand1
+                display.textContent = "-" + display.textContent
+                
+            }
+
+            if (x < 0) {
+                console.log(operand1)
+                operand1 = operand1.substring(1)
+                display.textContent = display.textContent.substring(1)
+            }
+        }
     });
 });
 
