@@ -27,12 +27,13 @@ buttons.forEach((key) => {
 
         if ((inputClass === "numberButton") && (operator === "")) {
             if (operand1 !== "") {
+                operand1 = operand1 + ""
+                // line 30 is because upon pressing =, operand1 isn't a string so just a quick fix to make it a string
                 operand1 = operand1.concat("", userInput)
                 display.textContent = operand1
                 return
             }
             operand1 = userInput
-            console.log(operand1)
             display.textContent = operand1
             return
         }
@@ -50,6 +51,7 @@ buttons.forEach((key) => {
 
         if ((inputClass === "numberButton") && (operator !== "") && (operand1 !== "")) {
             if (operand2 !== "") {
+                operand2 = operand2 + ""
                 display.innerHTML += userInput
                 operand2 = operand2.concat("", userInput)
                 return
@@ -64,22 +66,6 @@ buttons.forEach((key) => {
             operator = ""
             display.textContent = "0"
             return
-        }
-
-        if (userInput === "+/-") {
-            let x = operand1
-            if (x > 0) {
-                console.log(operand1)
-                operand1 = "-" + operand1
-                display.textContent = "-" + display.textContent
-                
-            }
-
-            if (x < 0) {
-                console.log(operand1)
-                operand1 = operand1.substring(1)
-                display.textContent = display.textContent.substring(1)
-            }
         }
     });
 });
@@ -145,14 +131,3 @@ btnOperation.forEach((operation) => {
         operation.style.backgroundColor = ""
     });
 });
-
-
-/*
-i want the operations to occur instantly, no waiting for a full expression - this way i dont have to worry about order of operations.
-
-if every sign calls the operate button, then the first press will be null since operand2 is null at the start
-if i give it a decoy value of 0, then if i press x or divide the first try itll crash
-a null boolean check should be good enough, if operation is pressed and operand2 = null return immedieately, otherwise execute the function.
-hey i did it =)
-
-*/
